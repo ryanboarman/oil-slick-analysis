@@ -30,8 +30,7 @@ The research on oil spills in the North Sea can inform solutions by identifying 
   * [Start with instructions for installing the ea-python environment](https://www.earthdatascience.org/workshops/setup-earth-analytics-python/)
 
 ## Data Access
-Complete instructions for accessing enough data to run the workflow.
-Host data on github
+Data download is in script.
 
 ## Collaborators and Acknowledgements
-Oil spill data was provided by SkyTruth
+Oil spill data was provided by SkyTruth.
