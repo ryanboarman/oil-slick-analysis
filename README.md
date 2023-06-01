@@ -31,6 +31,8 @@ The research on oil spills in the North Sea can inform solutions by identifying 
 
 ## Data Access
 Data download is in script.
+The script contains URLs to downlaod .geojson oil slicks and .asc species distribution maps.
+Script can run in jupyter notebook.
 
 ## Collaborators and Acknowledgements
 Oil spill data was provided by SkyTruth.
