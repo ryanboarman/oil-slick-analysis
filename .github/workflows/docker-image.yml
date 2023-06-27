@@ -1,11 +1,12 @@
 name: Update Environment
 
-on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - 'environment.yml'
-      - 'Dockerfile'
+on: workflow_dispatch
+#   push:
+#     branches: [ "main" ]
+#     paths:
+#       - 'environment.yml'
+#       - 'Dockerfile'
+    
 
 jobs:
 
