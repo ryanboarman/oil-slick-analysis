@@ -1,4 +1,4 @@
-# boarman-2023-capstone-project
+# oil-slick-analysis
 Ryan Boarman 2023 Capstone Project
 
 [![DOI](https://zenodo.org/badge/637486224.svg)](https://zenodo.org/badge/latestdoi/637486224)
