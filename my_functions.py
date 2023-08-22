@@ -24,7 +24,7 @@ def download_oil_data(urls, filenames):
         
         # Check if the file already exists
         if os.path.exists(file_path):
-            print(f"File '{filename}' already exists. Skipping download.")
+            # print(f"File '{filename}' already exists. Skipping download.")
             continue
 
         response = requests.get(url)
@@ -32,7 +32,7 @@ def download_oil_data(urls, filenames):
         with open(file_path, "wb") as file:
             file.write(response.content)
         
-        print(f"File '{filename}' downloaded successfully.")
+        # print(f"File '{filename}' downloaded successfully.")
 
 
 
@@ -68,18 +68,20 @@ def calculate_geometry_stats(data_dict, species_id, month, all_countries_gdf_all
         all_countries_gdf_allcat_clipped['grd__starttime'].dt.month == int(month)
     ].copy()  # Create a copy of the filtered rows
     
-    # Create blank lists for min, max, mean
+    # Create blank lists for min, max, mean, and density
     min_vals = []
     max_vals = []
     mean_vals = []
+    density_vals = []
 
     # Loop through each geometry in the filtered GeoDataFrame
     for i, row in filtered_rows.iterrows():
 
-        # Initialize min, max, and mean values to NaN
+        # Initialize min, max, mean, and density values to NaN
         min_val = np.nan
         max_val = np.nan
         mean_val = np.nan
+        density_val = np.nan
         try:
             # Clip the raster to the geometry
             clipped = selected_array.rio.clip([row.geometry], all_touched=True)
@@ -91,21 +93,28 @@ def calculate_geometry_stats(data_dict, species_id, month, all_countries_gdf_all
             min_val = clipped.min().values
             max_val = clipped.max().values
             mean_val = clipped.mean().values
+            
+            # Calculate density by dividing mean value by area in square kilometers
+            density_val = mean_val * row['area_km2']
 
         except rxr.exceptions.NoDataInBounds:
-            # If there is no data in the bounds of the geometry, set min, max, and mean values to NaN
+            # If there is no data in the bounds of the geometry, set min, max, mean, and density values to NaN
             min_val = np.nan
             max_val = np.nan
             mean_val = np.nan
+            density_val = np.nan
 
-        # Append the min, max, and mean values to their respective lists
+        # Append the min, max, mean, and density values to their respective lists
         min_vals.append(min_val)
         max_vals.append(max_val)
         mean_vals.append(mean_val)
+        density_vals.append(density_val)
 
-    # Assign the min, max, and mean values to the copied GeoDataFrame
+    # Assign the min, max, mean, and density values to the copied GeoDataFrame
     filtered_rows['min_val'] = min_vals
     filtered_rows['max_val'] = max_vals
     filtered_rows['mean_val'] = mean_vals
+    filtered_rows['density'] = density_vals
+    
     
     return filtered_rows
