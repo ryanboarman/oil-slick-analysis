@@ -40,7 +40,7 @@ The research on oil spills in the North Sea will enhance our understanding of th
 ## Environment
   * [Start with instructions for installing the ea-python environment](https://www.earthdatascience.org/workshops/setup-earth-analytics-python/) 
   
-    Ensure you have Jupyter Notebook installed to run the script.
+  *  Ensure you have Jupyter Notebook installed to run the script.
 
 ## Repository Files and Their Roles
 
