@@ -60,4 +60,4 @@ Species distribution models: Waggitt, James J., et al. "Distribution maps of cet
 
 If you use this work in your research or project, please cite it as:
 
-Ryan Boarman. 2023 . Spilled Secrets: Uncovering the Effects of Oil Spills on the North Sea Ecosystem. Publisher. DOI 10.5281/zenodo.8099823
+Ryan Boarman. 2023 . Spilled Secrets: Uncovering the Effects of Oil Spills on the North Sea Ecosystem. DOI 10.5281/zenodo.8099823
